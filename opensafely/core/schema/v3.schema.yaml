@@ -1,0 +1,42 @@
+$id: "https://opensafely.org/schema/pipeline.v3.schema.json"
+$schema: "https://json-schema.org/draft/2020-12/schema"
+description: "Schema for project.yaml formats in OpenSAFELY projects"
+type: object
+properties:
+  version:
+    type: [number, string]
+  expectations:
+    type: object
+    properties: 
+      population_size: 
+        type: integer
+        default: 1000
+  actions:
+    type: object
+    items:
+      type: object
+      properties:
+        run: 
+          type: string
+        needs:
+          type: array
+          items:
+            type: string
+        outputs:
+          type: object
+          properties:
+            highly_sensitive: 
+              type: object
+              items:
+                type: string
+            moderately_sensitive:
+              type: object
+              items:
+                type: string
+            minimally_sensitive:
+              type: object
+              items:
+                type: string
+required: 
+  - version
+  - actions

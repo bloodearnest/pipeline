@@ -1,0 +1,19 @@
+version: '3.0'
+
+expectations:
+  population_size: 500000
+
+actions:
+
+  extract_all:
+    run: cohortextractor:latest generate_cohort --study-definition study_definition_all --output-format csv.gz
+    outputs:
+      highly_sensitive:
+        cohort: output/input_all.csv.gz
+
+  extract_all2:
+    run: cohortextractor:latest generate_cohort --study-definition study_definition_all --output-format csv.gz
+    outputs:
+      highly_sensitive:
+        cohort: output/input_all.csv.gz
+
